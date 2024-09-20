@@ -34,7 +34,6 @@ import time
 #         page.goto("https://bootswatch.com/default/")
 
 #         # Set the viewport size for the browser window
-#         page.set_viewport_size({"width": 1920, "height": 1080})
 
 #         # Locate a button element using its role and name
 #         # Role options:
@@ -105,8 +104,7 @@ import time
 #         page.goto("https://bootswatch.com/default/")
 
 #         # Set the viewport size for the browser window
-#         page.set_viewport_size({"width": 1920, "height": 1080})
-
+#
 #         # Scroll down the page by 1000 pixels
 #         page.evaluate("window.scrollBy(0, 1000);")
 
@@ -171,7 +169,6 @@ def test_radio_and_checkbox_interaction():
         page.goto("https://bootswatch.com/default/")
 
         # Set the viewport size for the browser window
-        page.set_viewport_size({"width": 1920, "height": 1080})
 
         # Scroll down the page by 4000 pixels
         page.evaluate("window.scrollBy(0, 4000);")
