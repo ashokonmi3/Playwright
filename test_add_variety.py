@@ -18,7 +18,8 @@ def equivalent(t1, t2):
     """Check two tasks for equivalence."""
     # Compare everything but the id field
     return (
-        (t1.summary == t2.summary) and (t1.owner == t2.owner) and (t1.done == t2.done)
+        (t1.summary == t2.summary) and (
+            t1.owner == t2.owner) and (t1.done == t2.done)
     )
 
 
@@ -80,7 +81,11 @@ def test_add_4(task):
     assert equivalent(t_from_db, task)
 
 
-task_ids = ["Task({},{},{})".format(t.summary, t.owner, t.done) for t in tasks_to_try]
+# task_ids = ["Task({},{},{})".format(t.summary, t.owner, t.done)
+#             for t in tasks_to_try]
+task_ids = [1, 2, 3, 4, 5]
+
+task_ids = ["first", "second", "third", "fourth", "fifth"]
 
 
 @pytest.mark.parametrize("task", tasks_to_try, ids=task_ids)
@@ -90,13 +95,22 @@ def test_add_5(task):
     t_from_db = tasks.get(task_id)
     assert equivalent(t_from_db, task)
 
+# @pytest.mark.parametrize("task", ids=task_ids)
+# def test_add_5(task):
+#     """Demonstrate ids."""
+#     task_id = tasks.add(task)
+#     t_from_db = tasks.get(task_id)
+#     assert equivalent(t_from_db, task)
 
+
+# pytest.param(<value>, id ="something"),
 @pytest.mark.parametrize(
     "task",
     [
         pytest.param(Task("create"), id="just summary"),
         pytest.param(Task("inspire", "Michelle"), id="summary/owner"),
-        pytest.param(Task("encourage", "Michelle", True), id="summary/owner/done"),
+        pytest.param(Task("encourage", "Michelle", True),
+                     id="summary/owner/done"),
     ],
 )
 def test_add_6(task):
